@@ -10,7 +10,7 @@ formInputUrl.addEventListener('submit', (event) => {
   const inputUrl = document.querySelector('#input-url');
   event.preventDefault();
   ytResult.innerHTML = createLoadingTemplate();
-  fetch('http://localhost:4000/download', {
+  fetch('https://yt-downloader-u4x0.onrender.com/download', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,6 +21,7 @@ formInputUrl.addEventListener('submit', (event) => {
   })
     .then(response => response.json())
     .then(resJson => {
+      console.log(resJson);
       ytResult.innerHTML = createContentTemplate(resJson);
       const audioContainer = document.querySelector('.audio-container');
       const videoContainer = document.querySelector('.video-container');
@@ -31,7 +32,10 @@ formInputUrl.addEventListener('submit', (event) => {
         videoContainer.innerHTML += createItemLinkTemplate(video);
       });
     })
-    .catch(error => alert(error));
+    .catch(error => {
+      ytResult.innerHTML = '';
+      alert(error);
+    });
 });
 
 
