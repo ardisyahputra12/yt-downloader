@@ -6,8 +6,8 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "ardi_saputra",
-  "license": "ISC",
+  "author": "ardi_saputra <ardisaputraa12@gmail.com>",
+  "license": "MIT",
   "type": "module",
   "dependencies": {
     "cors": "^2.8.5",
